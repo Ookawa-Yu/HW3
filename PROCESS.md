@@ -13,11 +13,17 @@ The first version used one level and only geometric shapes. The current version
 adds a second level and hit-point-based bricks. I
 separated physics.py from main.py so collisions can be tested without a window.
 I retained the course Ball class idea and fixed-step update, removed gravity,
-then added a paddle, bricks, lives, score and game states.
+then added a paddle, bricks, lives, score and game states. Destroyed bricks now
+can drop a circular-plus multiball item from level one. From level two, bricks
+can also drop a separate bomb-icon item. Each item has its own 10% chance and
+ten-miss guarantee. The plus creates a normal mirrored ball; the bomb item
+creates a mirrored bomb ball that explodes on its first brick contact, damages
+nearby bricks once and displays a short expanding-ring effect.
 
 ## Design decision
 
-The Pygame window uses a white background and simple geometric shapes. White bricks take one hit, while pink bricks take two hits and turn white after
+The taller Pygame window uses a white background and simple geometric shapes,
+leaving more play space between the lowest brick row and the paddle. White bricks take one hit, while pink bricks take two hits and turn white after
 the first hit. The second level uses the pink bricks to form a heart outline.
 The ball keeps
 the Week 7 orange colour so the source transformation remains visible.
